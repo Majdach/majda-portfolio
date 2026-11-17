@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Enterprise AI Copilot : projet de Majda Chouiekh en IA générative et RAG. Architecture, outils, captures réelles et réponses documentées avec citations.">
+  <meta name="theme-color" content="#111c3e">
+  <title>Enterprise AI Copilot — Projet | Majda Chouiekh</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="assets/site.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Retour au portfolio de Majda Chouiekh"><span class="brand-mark">M.</span><span class="brand-name">Majda <span>Chouiekh</span></span></a>
+      <nav class="desktop-nav" aria-label="Navigation principale"><a href="index.html#apropos">À propos</a><a href="index.html#projets" aria-current="page">Projets</a><a href="index.html#competences">Compétences</a><a href="index.html#contact">Contact</a></nav>
+      <div class="header-actions">
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Activer le mode sombre" title="Mode sombre"><svg viewBox="0 0 24 24" data-moon aria-hidden="true"><path d="M20.5 13.4A8.6 8.6 0 0 1 10.6 3.5 8.7 8.7 0 1 0 20.5 13.4Z"/></svg><svg viewBox="0 0 24 24" data-sun aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+        <a class="btn btn-primary btn-small header-cv" href="CV_Majda_Chouiekh_PFE_2027.pdf" target="_blank" rel="noopener">Mon CV <span aria-hidden="true">↗</span></a>
+        <button class="menu-button" type="button" data-menu-toggle aria-controls="mobile-nav" aria-expanded="false" aria-label="Ouvrir le menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      </div>
+    </div>
+    <nav id="mobile-nav" class="mobile-nav" data-mobile-nav aria-hidden="true" aria-label="Navigation mobile"><a href="index.html">Accueil</a><a href="index.html#projets">Tous les projets</a><a href="index.html#competences">Compétences</a><a href="index.html#contact">Contact</a><a href="CV_Majda_Chouiekh_PFE_2027.pdf" target="_blank" rel="noopener">Consulter mon CV ↗</a></nav>
+  </header>
+  <main id="main">
+    <div class="container project-header">
+      <a href="index.html#projets" class="back-link"><span aria-hidden="true">←</span> Retour aux projets</a>
+      <header class="case-hero">
+        <p class="eyebrow">Étude de cas · Projet 01</p>
+        <h1>Enterprise AI Copilot</h1>
+        <p>Un assistant d’IA générative pour explorer des documents d’entreprise, poser des questions en langage naturel et retrouver les passages qui justifient les réponses.</p>
+        <div class="case-meta"><span>IA générative</span><span>Retrieval-Augmented Generation</span><span>Recherche documentaire</span><span>Application Streamlit</span></div>
+        <div class="case-hero-buttons"><a href="#captures" class="btn btn-light">Voir les captures réelles <span aria-hidden="true">↓</span></a><a href="CV_Majda_Chouiekh_PFE_2027.pdf" download class="btn btn-ghost-light">Télécharger mon CV <span aria-hidden="true">↓</span></a></div>
+      </header>
+    </div>
+
+    <section class="section" id="presentation" aria-labelledby="overview-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">01 / Présentation</p><h2 id="overview-title">Le projet en bref</h2><p>Du document PDF à une réponse contextualisée.</p></div></div>
+        <div class="case-intro">
+          <div class="panel case-copy">
+            <h3>Contexte &amp; objectif</h3>
+            <p>Les informations utiles d’une organisation sont souvent réparties dans des documents PDF. Pour retrouver une règle ou une procédure, il faut généralement parcourir ces fichiers manuellement.</p>
+            <p>J’ai développé un prototype d’<strong>assistant conversationnel documentaire</strong> qui permet d’interroger ces contenus en langage naturel. L’approche RAG associe une recherche dans les documents à un modèle de langage local pour produire des réponses basées sur des passages retrouvés.</p>
+            <p>L’interface permet notamment de sélectionner un document, de poser une question et de consulter la provenance de la réponse.</p>
+          </div>
+          <div class="panel case-aside">
+            <h3>Fonctionnalités illustrées</h3>
+            <ul>
+              <li><span class="check">✓</span><span>Sélection d’un document PDF à interroger.</span></li>
+              <li><span class="check">✓</span><span>Importation de nouveaux fichiers PDF via l’interface.</span></li>
+              <li><span class="check">✓</span><span>Questions et réponses en langage naturel.</span></li>
+              <li><span class="check">✓</span><span>Affichage des passages retrouvés avec nom du fichier et numéro de page.</span></li>
+              <li><span class="check">✓</span><span>Utilisation d’un LLM local avec Ollama pour le traitement documentaire.</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="architecture" aria-labelledby="architecture-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">02 / Architecture</p><h2 id="architecture-title">Comment fonctionne le Copilot ?</h2><p>Un pipeline RAG articulé autour de la préparation documentaire et de la génération de réponse.</p></div></div>
+        <div class="workflow" aria-label="Étapes conceptuelles du traitement documentaire">
+          <div class="step"><span class="step-number">ÉTAPE 01</span><h3>Documents PDF</h3><p>Importation et sélection des sources.</p></div>
+          <div class="step"><span class="step-number">ÉTAPE 02</span><h3>Découpage</h3><p>Extraction et segmentation du texte.</p></div>
+          <div class="step"><span class="step-number">ÉTAPE 03</span><h3>Embeddings</h3><p>Vectorisation des passages avec Sentence Transformers.</p></div>
+          <div class="step"><span class="step-number">ÉTAPE 04</span><h3>Recherche</h3><p>Récupération des passages pertinents dans ChromaDB.</p></div>
+          <div class="step"><span class="step-number">ÉTAPE 05</span><h3>Réponse sourcée</h3><p>Génération via Ollama et présentation des références.</p></div>
+        </div>
+        <div style="margin-top:23px"><p class="eyebrow">Technologies du projet</p><div class="tags" style="margin-bottom:0"><span class="tag">Python</span><span class="tag">Streamlit</span><span class="tag">Ollama</span><span class="tag">Sentence Transformers</span><span class="tag">ChromaDB</span><span class="tag">LangGraph</span><span class="tag">FastAPI</span><span class="tag">Docker</span></div></div>
+      </div>
+    </section>
+
+    <section class="section" id="captures" aria-labelledby="screens-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">03 / Application</p><h2 id="screens-title">Captures d’écran réelles</h2><p>Deux exemples issus de mes tests sur le document <strong>reglement_rh.pdf</strong>.</p></div></div>
+        <div class="screens-grid">
+          <figure class="panel shot" style="margin:0">
+            <button type="button" class="shot-image" data-lightbox-image="assets/copilot-interface.png" data-lightbox-title="Interface Enterprise AI Copilot — dialogue documentaire" aria-label="Agrandir la capture de l’interface du Copilot"><img src="assets/copilot-interface.png" alt="Interface sombre Enterprise AI Copilot : sélection de reglement_rh.pdf, import PDF et réponse à une question sur le document" width="1334" height="556" loading="lazy"></button>
+            <figcaption class="shot-body"><div class="shot-count">Capture 01</div><h3>Interface de conversation</h3><p>Sélection de <em>reglement_rh.pdf</em>, formulaire d’importation et premier échange pour comprendre le contenu du document.</p></figcaption>
+          </figure>
+          <figure class="panel shot" style="margin:0">
+            <button type="button" class="shot-image" data-lightbox-image="assets/copilot-sources.png" data-lightbox-title="Réponse avec passages et citation de source" aria-label="Agrandir la capture de réponse sourcée"><img src="assets/copilot-sources.png" alt="Question sur le nombre de jours de télétravail et réponse du Copilot : jusqu’à 2 jours par semaine, avec extrait retrouvé et indication de la page 2" width="990" height="551" loading="lazy"></button>
+            <figcaption class="shot-body"><div class="shot-count">Capture 02</div><h3>Réponse vérifiable avec source</h3><p>À la question sur le télétravail, l’application affiche la réponse et un extrait de <em>reglement_rh.pdf</em> provenant de la page 2.</p></figcaption>
+          </figure>
+        </div>
+        <p class="shot-note">Cliquez sur les captures pour les agrandir. Ces images ont été fournies à partir des tests du projet, sans résultats ni scores ajoutés artificiellement.</p>
+      </div>
+    </section>
+
+    <section class="section-tight" id="resultat" aria-labelledby="result-title">
+      <div class="container">
+        <div class="section-heading"><div><p class="eyebrow">04 / Exemple documenté</p><h2 id="result-title">Une réponse et sa provenance</h2><p>Un exemple concret de question-réponse dans la démonstration.</p></div></div>
+        <div class="quote-box">
+          <p class="q">« Combien de jours de télétravail sont autorisés par semaine ? »</p>
+          <p class="a">Le Copilot répond que le télétravail est autorisé jusqu’à <strong>2 jours par semaine</strong> pour les postes éligibles. Le passage retrouvé précise que cela reste soumis à l’accord du responsable.</p>
+          <div class="source">Source affichée : reglement_rh.pdf · page 2</div>
+        </div>
+        <div class="insight" style="margin-top:22px">
+          <div class="panel"><h3>Ce que cette démonstration met en valeur</h3><p>Une interface de questions-réponses reliée aux documents, la recherche d’information ciblée et la traçabilité par nom de fichier, numéro de page et extrait pertinent.</p></div>
+          <div class="panel"><h3>Ce que je retiens du développement</h3><p>La création d’une chaîne complète, de l’indexation de documents à leur consultation dans une application interactive, ainsi que l’importance de vérifier les réponses à l’aide des sources affichées.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="connect-title">
+      <div class="container">
+        <div class="contact-box">
+          <p class="eyebrow">Pour échanger sur le projet</p>
+          <h2 id="connect-title">Intéressé(e) par mon travail en IA générative ?</h2>
+          <p>Je recherche un stage PFE à partir de février 2027. Je serais ravie d'échanger autour du RAG, des LLM et des applications IA.</p>
+          <div class="contact-actions"><a class="btn btn-light" href="mailto:chouiekhmajda@gmail.com?subject=Enterprise%20AI%20Copilot%20-%20Majda%20Chouiekh">Me contacter <span aria-hidden="true">↗</span></a><a href="index.html#projets" class="btn btn-ghost-light">Voir mes autres projets <span aria-hidden="true">←</span></a><a href="CV_Majda_Chouiekh_PFE_2027.pdf" download class="btn btn-ghost-light">Télécharger mon CV <span aria-hidden="true">↓</span></a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="container site-footer"><div>© 2026 Majda Chouiekh · Enterprise AI Copilot</div><div><a href="index.html">Retour au portfolio ↑</a></div></footer>
+  <dialog class="lightbox" id="image-lightbox" aria-label="Agrandissement d’une capture d’écran"><div class="lightbox-inner"><div class="lightbox-top"><span data-lightbox-caption>Capture du projet</span><button type="button" data-close-lightbox aria-label="Fermer la capture">Fermer ✕</button></div><img src="assets/copilot-interface.png" alt="Capture du projet"></div></dialog>
+</body>
+</html>
